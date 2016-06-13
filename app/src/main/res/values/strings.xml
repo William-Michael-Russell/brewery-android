@@ -1,0 +1,45 @@
+<resources>
+    <string name="app_name">Testaholic Brewery</string>
+
+    <!-- Splash screen-->
+    <string name="importing_data">Importing data...</string>
+
+    <!-- DrinkCatalogActivity menu -->
+    <string name="menu_rate">Rate</string>
+    <string name="menu_refresh">Refresh</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_about">About</string>
+
+    <string name="title_activity_lesson_catalog">Drinks</string>
+    <string name="title_activity_cards">CardsActivity</string>
+
+    <string name="empty_list_text">Empty</string>
+    <string name="dont_know_text">DON\'T KNOW</string>
+    <string name="know_text">KNOW</string>
+    <string name="remove_button_text">REMOVE</string>
+    <string name="edit_button_text">EDIT</string>
+    <string name="word_available">AVAILABLE</string>
+
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_edit_card">EditCardActivity</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_splash">Brewery</string>
+    <string name="title_activity_learn_cards">LearnCardsActivity</string>
+
+    <string name="clear_progress">Clear progress</string>
+    <string name="errorText">Error</string>
+
+    <string name="noBundledLessons">No bundled drinks</string>
+    <string name="noBookmarkedLessons">No favorite drinks</string>
+    <string name="noUserLessons">No user drinks</string>
+    <string name="user_lesson_name">USER LESSON</string>
+
+    <!-- StudyFlashcardsActivity -->
+    <string name="flashcards_activity_title">Flashcards</string>
+    <string name="flashcards_activity_lesson_ended_title">Alert</string>
+    <string name="flashcards_activity_lesson_ended_text">Lesson ended</string>
+    <string name="flashcards_activity_words_learnt_title">Alert</string>
+    <string name="flashcards_activity_words_learnt_text">You\'ve already learnt all the ingredient\'s in this drink</string>
+
+</resources>
