@@ -92,26 +92,26 @@ public class DrinkCatalogActivity extends BaseActivity implements ViewPager.OnPa
 
     @Override
     protected void onResume(){
-        super.onStart();
+        super.onResume();
         Toast.makeText(DrinkCatalogActivity.this, "DrinkCatalogActivity : onResume", Toast.LENGTH_SHORT).show();
     }
 
 
     @Override
     protected void onStop(){
-        super.onStart();
+        super.onStop();
         Toast.makeText(DrinkCatalogActivity.this, "DrinkCatalogActivity : onStop", Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onRestart(){
-        super.onStart();
+        super.onRestart();
         Toast.makeText(DrinkCatalogActivity.this, "DrinkCatalogActivity : onRestart", Toast.LENGTH_SHORT).show();
     }
 
 
     @Override
     protected void onDestroy(){
-        super.onStart();
+        super.onDestroy();
         Toast.makeText(DrinkCatalogActivity.this, "DrinkCatalogActivity : onDestroy", Toast.LENGTH_SHORT).show();
         try {
             TimeUnit.SECONDS.sleep(2);
