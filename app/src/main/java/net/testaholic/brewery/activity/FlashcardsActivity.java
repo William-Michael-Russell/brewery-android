@@ -157,7 +157,7 @@ public abstract class FlashcardsActivity extends AbstractExpandingActivity
         initTitle();
         initHeader();
     }
-
+    
     @Override
     public void renderProgress(Integer renderProgress) {
         numberProgressBar.setProgress(renderProgress);

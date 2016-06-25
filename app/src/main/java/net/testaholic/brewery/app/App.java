@@ -21,6 +21,10 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.os.StrictMode;
 
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.Tracker;
+
+import net.testaholic.brewery.R;
 import net.testaholic.brewery.dagger.component.ApplicationComponent;
 import net.testaholic.brewery.dagger.component.DaggerApplicationComponent;
 import net.testaholic.brewery.dagger.module.ApplicationModule;
@@ -38,6 +42,26 @@ public class App extends Application {
     public static App getInstance() {
         return singleton;
     }
+
+
+    private Tracker mTracker;
+
+    /**
+     * Gets the default {@link Tracker} for this {@link Application}.
+     * @return tracker
+     */
+    synchronized public Tracker getDefaultTracker() {
+        if (mTracker == null) {
+            GoogleAnalytics analytics = GoogleAnalytics.getInstance(this);
+            // To enable debug logging use: adb shell setprop log.tag.GAv4 DEBUG
+            mTracker = analytics.newTracker(R.xml.global_tracker);
+        }
+        return mTracker;
+    }
+
+
+
+
 
     @Override
     public void onCreate() {

@@ -99,7 +99,7 @@ public class LessonsImporterImpl implements LessonsImporter {
                         }
                     }
                 } else {
-                    Toast.makeText(App.getInstance().getApplicationContext(), "Unable to get drink list", Toast.LENGTH_SHORT).show();
+//                    Toast.makeText(App.getInstance().getApplicationContext(), "Unable to get drink list", Toast.LENGTH_SHORT).show();
                 }
                 //TODO implement pull to refresh with callable retrofit
             }

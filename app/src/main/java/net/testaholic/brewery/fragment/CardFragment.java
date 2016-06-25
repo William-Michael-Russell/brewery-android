@@ -33,6 +33,7 @@ public class CardFragment extends BaseFragment {
     private static final String BUNDLE_LONG_CARD_ID = "cardId";
     private static final String BUNDLE_BOOLEAN_CARD_FRONT = "cardFront";
 
+
     private View rootView;
     private String englishWord;
     private String definition;
@@ -59,6 +60,7 @@ public class CardFragment extends BaseFragment {
         fragment.setArguments(bundle);
         return fragment;
     }
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

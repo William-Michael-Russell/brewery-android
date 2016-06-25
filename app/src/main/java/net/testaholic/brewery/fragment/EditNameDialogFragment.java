@@ -21,7 +21,6 @@ import net.testaholic.brewery.domain.Drink;
 import net.testaholic.brewery.rest.RestClient;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**

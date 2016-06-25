@@ -17,6 +17,7 @@
 package net.testaholic.brewery.activity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
@@ -25,8 +26,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.daimajia.numberprogressbar.NumberProgressBar;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import net.testaholic.brewery.R;
+import net.testaholic.brewery.app.App;
 import net.testaholic.brewery.dagger.component.ActivityComponent;
 import net.testaholic.brewery.data.LessonsImporter;
 import net.testaholic.brewery.navigator.Navigator;
@@ -67,6 +71,17 @@ public class SplashActivity extends BaseActivity implements SplashView {
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
         initPresenter();
+
+        App application = (App) getApplication();
+        Tracker mTracker = application.getDefaultTracker();
+
+        Log.i(TAG, "Setting screen name: " + "Splash Activity");
+        mTracker.setScreenName("Splash Activity");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+        mTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Action")
+                .setAction("Share")
+                .build());
     }
 
     private void initPresenter(){

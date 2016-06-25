@@ -22,12 +22,16 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.mikepenz.aboutlibraries.LibsBuilder;
 
+import net.testaholic.brewery.MemoryLeak;
 import net.testaholic.brewery.R;
 import net.testaholic.brewery.adapter.DrinksPageAdapter;
 import net.testaholic.brewery.app.App;
@@ -39,6 +43,10 @@ import net.testaholic.brewery.util.MarketService;
 import net.testaholic.brewery.util.ShareService;
 import net.testaholic.brewery.view.LessonCatalogView;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
@@ -54,6 +62,7 @@ public class DrinkCatalogActivity extends BaseActivity implements ViewPager.OnPa
         LessonCatalogView {
 
     private static final String TAG = LogHelper.makeLogTag(DrinkCatalogActivity.class);
+    private Tracker mTracker;
 
     public static final int OFF_SCREEN_PAGE_LIMIT = 2;
 
@@ -92,27 +101,38 @@ public class DrinkCatalogActivity extends BaseActivity implements ViewPager.OnPa
 
     @Override
     protected void onResume(){
-        super.onStart();
+        super.onResume();
+        App application = (App) getApplication();
+        mTracker = application.getDefaultTracker();
+
         Toast.makeText(DrinkCatalogActivity.this, "DrinkCatalogActivity : onResume", Toast.LENGTH_SHORT).show();
+        Log.i(TAG, "Setting screen name: " + "Drink Activity");
+        mTracker.setScreenName("Drink Activity");
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+        mTracker.send(new HitBuilders.EventBuilder()
+                .setCategory("Action")
+                .setAction("Share")
+                .build());
     }
 
 
     @Override
     protected void onStop(){
-        super.onStart();
+        super.onStop();
         Toast.makeText(DrinkCatalogActivity.this, "DrinkCatalogActivity : onStop", Toast.LENGTH_SHORT).show();
     }
     @Override
     protected void onRestart(){
-        super.onStart();
+        super.onRestart();
         Toast.makeText(DrinkCatalogActivity.this, "DrinkCatalogActivity : onRestart", Toast.LENGTH_SHORT).show();
     }
 
 
     @Override
     protected void onDestroy(){
-        super.onStart();
+        super.onDestroy();
         Toast.makeText(DrinkCatalogActivity.this, "DrinkCatalogActivity : onDestroy", Toast.LENGTH_SHORT).show();
+
         try {
             TimeUnit.SECONDS.sleep(2);
         } catch (InterruptedException e) {
@@ -131,6 +151,7 @@ public class DrinkCatalogActivity extends BaseActivity implements ViewPager.OnPa
         initTitle();
         lessonCatalogActivityPresenter.setView(this);
         lessonCatalogActivityPresenter.initialize();
+
 
     }
 
@@ -187,14 +208,44 @@ public class DrinkCatalogActivity extends BaseActivity implements ViewPager.OnPa
 
     @Override
     public void onPageSelected(int position) {
+
+        App application = (App) getApplication();
+        mTracker = application.getDefaultTracker();
+
         switch (position){
             case 0:
-                Toast.makeText(App.getInstance().getApplicationContext(), "BundledLessonsTabFragment : New Lessons Fragment", Toast.LENGTH_SHORT).show();
+                Log.i(TAG, "Setting screen name: " + "Drink Fragment");
+                mTracker.setScreenName("Drink Fragment");
+                mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+                mTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Action")
+                        .setAction("Share")
+                        .build());
+
+                Toast.makeText(App.getInstance().getApplicationContext(), "BundledLessonsTabFragment : New Drinks Fragment", Toast.LENGTH_SHORT).show();
+
                 break;
             case 1:
+
+                Log.i(TAG, "Setting screen name: " + "Favorites Fragment");
+                mTracker.setScreenName("Favorites Fragment");
+                mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+                mTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Action")
+                        .setAction("Share")
+                        .build());
                 Toast.makeText(App.getInstance().getApplicationContext(), "BookmarkedLessonsTabFragment : New Favorites Fragment", Toast.LENGTH_SHORT).show();
                 break;
             case 2:
+
+                Log.i(TAG, "Setting screen name: " + "Favorites Fragment");
+                mTracker.setScreenName("New Drink Fragment");
+                mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+                mTracker.send(new HitBuilders.EventBuilder()
+                        .setCategory("Action")
+                        .setAction("Share")
+                        .build());
+
                 Toast.makeText(App.getInstance().getApplicationContext(), "UserLessonsTabFragment : New Add Drink Fragment", Toast.LENGTH_SHORT).show();
                 break;
             default:

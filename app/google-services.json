@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "756563302806",
+    "project_id": "brewery-3209"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:756563302806:android:48f1288afcc4303a",
+        "android_client_info": {
+          "package_name": "net.testaholic.brewery"
+        }
+      },
+      
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDcK1Rsz6YinBno69dgB1HlCHwe-2OkMVo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-79777438-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

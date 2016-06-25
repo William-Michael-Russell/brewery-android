@@ -16,7 +16,6 @@
 
 package net.testaholic.brewery.activity;
 
-import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -32,7 +31,6 @@ import net.testaholic.brewery.adapter.EditFlashcardsAdapter;
 import net.testaholic.brewery.dagger.component.ActivityComponent;
 import net.testaholic.brewery.domain.Ingredients;
 import net.testaholic.brewery.domain.Drink;
-import net.testaholic.brewery.fragment.EditNameDialogFragment;
 import net.testaholic.brewery.presentation.EditFlashcardsActivityPresenter;
 import net.testaholic.brewery.util.SpeechService;
 import net.testaholic.brewery.view.EditFlashcardsView;
